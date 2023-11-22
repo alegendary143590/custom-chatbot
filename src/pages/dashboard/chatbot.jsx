@@ -29,7 +29,7 @@ export function Chatbot() {
 
   const openai = new OpenAIApi(configuration);
 
-  const [question, setQuestion] = React.useState("")
+  const [question, setQuestion] = React.useState("");
   const [storedValues, setStoredValues] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
 
