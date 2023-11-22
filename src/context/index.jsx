@@ -12,8 +12,8 @@ export function reducer(state, action) {
     case "SIDENAV_TYPE": {
       return { ...state, sidenavType: action.value };
     }
-    case "SIDENAV_COLOR": {
-      return { ...state, sidenavColor: action.value };
+    case "MAIN_COLOR": {
+      return { ...state, mainColor: action.value };
     }
     case "TRANSPARENT_NAVBAR": {
       return { ...state, transparentNavbar: action.value };
@@ -33,7 +33,7 @@ export function reducer(state, action) {
 export function MaterialTailwindControllerProvider({ children }) {
   const initialState = {
     openSidenav: false,
-    sidenavColor: "blue",
+    mainColor: "blue",
     sidenavType: "dark",
     transparentNavbar: true,
     fixedNavbar: false,
@@ -75,8 +75,8 @@ export const setOpenSidenav = (dispatch, value) =>
   dispatch({ type: "OPEN_SIDENAV", value });
 export const setSidenavType = (dispatch, value) =>
   dispatch({ type: "SIDENAV_TYPE", value });
-export const setSidenavColor = (dispatch, value) =>
-  dispatch({ type: "SIDENAV_COLOR", value });
+export const setMainColor = (dispatch, value) =>
+  dispatch({ type: "MAIN_COLOR", value });
 export const setTransparentNavbar = (dispatch, value) =>
   dispatch({ type: "TRANSPARENT_NAVBAR", value });
 export const setFixedNavbar = (dispatch, value) =>
