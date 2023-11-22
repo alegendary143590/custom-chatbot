@@ -9,8 +9,18 @@ import {
   Button,
   Typography,
 } from "@material-tailwind/react";
+import { useGoogleOneTapLogin } from "@react-oauth/google";
 
 export function SignUp() {
+  const handleGoogleAuth = useGoogleOneTapLogin({
+    onSuccess: credentialResponse => {
+      console.log(credentialResponse);
+    },
+    onError: errorResponse => {
+      console.log(errorResponse);
+    },
+  });
+
   return (
     <>
       <img
@@ -38,8 +48,17 @@ export function SignUp() {
             </div>
           </CardBody>
           <CardFooter className="pt-0">
-            <Button variant="gradient" fullWidth>
+            <Button className="mb-4" variant="gradient" fullWidth>
               Sign Up
+            </Button>
+            <Button
+              className="flex items-center justify-center gap-2"
+              variant="gradient"
+              fullWidth
+              onClick={handleGoogleAuth}
+            >
+              <i className="fab fa-google" />
+              Sign Up with Google
             </Button>
             <Typography variant="small" className="mt-6 flex justify-center">
               Already have an account?

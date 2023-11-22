@@ -9,8 +9,15 @@ import {
   Button,
   Typography,
 } from "@material-tailwind/react";
+import { useGoogleLogin } from "@react-oauth/google";
 
 export function SignIn() {
+  const handleGoogleAuth = useGoogleLogin({
+    onSuccess: tokenResponse => console.log(tokenResponse),
+    onError: errorResponse => console.log(errorResponse),
+    flow: 'auth-code'
+  });
+
   return (
     <>
       <img
@@ -37,8 +44,17 @@ export function SignIn() {
             </div>
           </CardBody>
           <CardFooter className="pt-0">
-            <Button variant="gradient" fullWidth>
+            <Button className="mb-4" variant="gradient" fullWidth>
               Sign In
+            </Button>
+            <Button
+              className="flex items-center justify-center gap-2"
+              variant="gradient"
+              fullWidth
+              onClick={handleGoogleAuth}
+            >
+              <i className="fab fa-google" />
+              Sign In with Google
             </Button>
             <Typography variant="small" className="mt-6 flex justify-center">
               Don't have an account?
