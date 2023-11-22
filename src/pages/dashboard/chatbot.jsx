@@ -99,7 +99,7 @@ export function Chatbot() {
             ChatGPT
           </Typography>
         </CardHeader>
-        <CardBody className="flex flex-col gap-4 p-4 px-10 grow">
+        <CardBody className="flex flex-col gap-4 py-4 px-6 lg:px-10 grow">
           <div className="overflow-y-auto grow">
             {
               storedValues.length == 0 ?
@@ -150,7 +150,7 @@ export function Chatbot() {
                   );
                 })}
           </div>
-          <div className="flex flex-row">
+          <div className="flex flex-row gap-4 items-center">
             <div className="basis-11/12 relative">
               <Input
                 className="aboslute"
@@ -169,9 +169,9 @@ export function Chatbot() {
                 <i className="fas fa-microphone" />
               </button>
             </div>
-            <div className="basis-1/12 px-2 flex pb-3 items-end">
-              <Button variant="gradient" className={loading ? "cursor-not-allowed bg-blue-500 h-full rounded-l-3xl text-white text-center" : "bg-blue-500 rounded-l-3xl text-white text-center"} fullWidth onClick={(e) => handleSubmit(e, "")}>
-                Send
+            <div className="basis-1/12 flex items-end">
+              <Button variant="gradient" className={loading ? "cursor-not-allowed bg-blue-500 h-full rounded-l-3xl text-white text-center px-3" : "bg-blue-500 rounded-l-3xl text-white text-center px-3"} fullWidth onClick={(e) => handleSubmit(e, "")}>
+                <i className="fas fa-paper-plane"></i>
               </Button>
               <Menu className="h-full">
                 <MenuHandler>
